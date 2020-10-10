@@ -13,6 +13,14 @@ function eventListeners() {
         ui.showNav();
     })
     // show nav end
+    // close nav after selected menu item start
+    const menuItems = document.querySelectorAll('.nav_single-link');
+    menuItems.forEach(function(item){
+        item.addEventListener('click', function(event){
+            ui.closeNav(event)
+        })
+    })
+    // close nav after selected menu item end
     // play/pause button start
     document.querySelector('.video_switch').addEventListener('click', function() {
         ui.videoControls();
@@ -69,6 +77,11 @@ UI.prototype.showNav = function() {
     document.querySelector('.nav').classList.toggle('nav-show')
 }
 // show nav end
+// close nav after selected menu item start
+UI.prototype.closeNav = function () {
+    document.querySelector('.nav').classList.toggle('nav-show')
+}
+// close nav after selected menu item end
 // play/pause button start
 UI.prototype.videoControls = function() {
     let btn = document.querySelector('.video_switch-btn');
